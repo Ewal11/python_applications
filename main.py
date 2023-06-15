@@ -1,4 +1,5 @@
 import random
+from prefect import flow
 import requests
 from requests import RequestException
 import time
@@ -122,6 +123,12 @@ class HodlhodlComScraper:
                     self.get_and_post_offers(curr, trading_type)
             time.sleep(1)  # rate limiting
 
-if __name__ == "__main__":
+@flow
+def get_hodlhodl_offers():
     ag = HodlhodlComScraper()
-    ag.get_currency_list()
+    ag.starter()
+
+
+if __name__ == "__main__":
+    get_hodlhodl_offers()
+
