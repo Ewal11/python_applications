@@ -1,11 +1,10 @@
 from pydantic import BaseModel, BaseSettings
-from datetime import datetime
 from typing import Optional
 
+from datetime import datetime
+
+
 class HodlHodlOfferBase(BaseModel):
-    def __init__(self, **data):
-        # data["coin_currency"] = "bitcoin"
-        super().__init__(**data)
 
     trading_type_name: str
     trading_type_slug: str
